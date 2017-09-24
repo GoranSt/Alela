@@ -1,0 +1,117 @@
+﻿@using Alela.Models
+@model LoginViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "Log in";
+}
+<html>
+<head>
+
+    <!-- Bootstrap -->
+    <link href="~/Content/Gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="~/Content/Gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="~/Content/Gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="~/Content/Gentelella/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="~/Content/Gentelella/build/css/custom.min.css" rel="stylesheet">
+</head>
+<body class="login">
+
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+        <div class="login_wrapper">
+            <div class="animate form login_form">
+                <section class="login_content">
+                    <form method="post" action="~/Account/Login">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <h1>Login Form</h1>
+                        <div>
+                            @*<input type="text" class="form-control" placeholder="Username" required="" />*@
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Placeholder = "UserName" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div>
+                            @*<input type="password" class="form-control" placeholder="Password" required="" />*@
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @Placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
+                        <div>
+                            <button type="submit" class="btn btn-default submit">Log in</button>
+                            <a class="reset_pass" href="#">Lost your password?</a>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <p class="change_link">
+                                New to site?
+                                <a href="#signup" class="to_register"> Create Account </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                                <p>©2017 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            <div id="register" class="animate form registration_form">
+                <section class="login_content">
+                    <form method="post" action="/Account/Register">
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <h1>Create Account</h1>
+                        <div>
+                            @*<input type="text" class="form-control" placeholder="Username" required="" />*@
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Placeholder = "UserName" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div>
+                            @*<input type="email" class="form-control" placeholder="Email" required="" />*@
+                            @*@Html.TextBoxFor(m => m.Email, new { @class = "form-control", @Placeholder = "Email" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })*@
+                        </div>
+                        <div>
+                            @*<input type="password" class="form-control" placeholder="Password" required="" />*@
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @Placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div>
+                            <input type="password" name="ConfirmPassword" id="ConfirmPassword" placeholder="Confirm password" class="form-control" />
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-default submit">Submit</button>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="separator">
+                            <p class="change_link">
+                                Already a member ?
+                                <a href="#signin" class="to_register"> Log in </a>
+                            </p>
+                            <div class="clearfix"></div>
+                            <br />
+                            <div>
+                                <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                                <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+    @*</div>*@
+
+</body>
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

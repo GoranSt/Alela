@@ -52,6 +52,13 @@ namespace Alela.Controllers
             }
         }
 
+        [AllowAnonymous]
+        public ActionResult Index(string returnUrl)
+        {
+            ViewBag.ReturnUrl = returnUrl;
+            return View();
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -146,7 +153,7 @@ namespace Alela.Controllers
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)

@@ -7,6 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alela", "Alela\Alela.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alela.DAL", "Alela.DAL\Alela.DAL.csproj", "{A702879C-AC71-4954-ABD3-895C37F9B17C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alela.BL", "Alela.BL\Alela.BL.csproj", "{9205325C-779E-4A19-B429-630810BA7BBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alela.Dependency", "Alela.Dependency\Alela.Dependency.csproj", "{85F18E20-E7B8-42D1-8365-BF73A40341C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alela.Models", "Alela.Models\Alela.Models.csproj", "{A368165A-6948-417C-B0B7-259CB86FAA76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alela.Common", "Alela.Common\Alela.Common.csproj", "{CF89BB24-4C38-4476-AB13-628DA0E452B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alela.Resources", "Alela.Resources\Alela.Resources.csproj", "{85B315E7-96FB-46CB-B28A-4C4E5F45F866}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +31,26 @@ Global
 		{A702879C-AC71-4954-ABD3-895C37F9B17C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A702879C-AC71-4954-ABD3-895C37F9B17C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A702879C-AC71-4954-ABD3-895C37F9B17C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9205325C-779E-4A19-B429-630810BA7BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9205325C-779E-4A19-B429-630810BA7BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9205325C-779E-4A19-B429-630810BA7BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9205325C-779E-4A19-B429-630810BA7BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85F18E20-E7B8-42D1-8365-BF73A40341C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85F18E20-E7B8-42D1-8365-BF73A40341C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85F18E20-E7B8-42D1-8365-BF73A40341C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85F18E20-E7B8-42D1-8365-BF73A40341C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A368165A-6948-417C-B0B7-259CB86FAA76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A368165A-6948-417C-B0B7-259CB86FAA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A368165A-6948-417C-B0B7-259CB86FAA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A368165A-6948-417C-B0B7-259CB86FAA76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF89BB24-4C38-4476-AB13-628DA0E452B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF89BB24-4C38-4476-AB13-628DA0E452B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF89BB24-4C38-4476-AB13-628DA0E452B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF89BB24-4C38-4476-AB13-628DA0E452B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85B315E7-96FB-46CB-B28A-4C4E5F45F866}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85B315E7-96FB-46CB-B28A-4C4E5F45F866}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85B315E7-96FB-46CB-B28A-4C4E5F45F866}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85B315E7-96FB-46CB-B28A-4C4E5F45F866}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
