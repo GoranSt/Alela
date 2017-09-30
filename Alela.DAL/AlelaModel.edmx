@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AlelaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AlelaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -55,7 +55,160 @@
           <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
           <Property Name="AccessFailedCount" Type="int" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="PersonID" Type="int" />
+          <Property Name="LanguageID" Type="int" />
         </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Culture" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsSystem" Type="bit" Nullable="false" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Persons">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nchar" MaxLength="50" />
+          <Property Name="LastName" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="PlaceOfBirth" Type="nchar" MaxLength="50" />
+          <Property Name="GenderID" Type="int" />
+          <Property Name="SocialSecurityNumber" Type="nchar" MaxLength="40" />
+          <Property Name="DriverLicenseNumber" Type="nchar" MaxLength="40" />
+          <Property Name="DateOfRetirement" Type="date" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="Avatar" Type="nchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK__AspNetUse__Langu__4AB81AF0">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Langu__4CA06362">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Langu__4E88ABD4">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Langu__5070F446">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Langu__52593CB8">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Perso__47DBAE45">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Perso__4D94879B">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Perso__4F7CD00D">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Perso__5165187F">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Perso__534D60F1">
+          <End Role="Persons" Type="Self.Persons" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Persons">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -118,6 +271,48 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Persons" EntityType="Self.Persons" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__AspNetUse__Langu__4AB81AF0" Association="Self.FK__AspNetUse__Langu__4AB81AF0">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Langu__4CA06362" Association="Self.FK__AspNetUse__Langu__4CA06362">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Langu__4E88ABD4" Association="Self.FK__AspNetUse__Langu__4E88ABD4">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Langu__5070F446" Association="Self.FK__AspNetUse__Langu__5070F446">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Langu__52593CB8" Association="Self.FK__AspNetUse__Langu__52593CB8">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Perso__47DBAE45" Association="Self.FK__AspNetUse__Perso__47DBAE45">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Perso__4D94879B" Association="Self.FK__AspNetUse__Perso__4D94879B">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Perso__4F7CD00D" Association="Self.FK__AspNetUse__Perso__4F7CD00D">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Perso__5165187F" Association="Self.FK__AspNetUse__Perso__5165187F">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Perso__534D60F1" Association="Self.FK__AspNetUse__Perso__534D60F1">
+            <End Role="Persons" EntitySet="Persons" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -135,8 +330,7 @@
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AlelaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -188,6 +382,8 @@
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <Property Name="PersonID" Type="Int32" />
+          <Property Name="LanguageID" Type="Int32" />
         </EntityType>
         <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
           <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
@@ -238,7 +434,72 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <EntitySet Name="Languages" EntityType="AlelaModel.Language" />
+          <EntitySet Name="Persons" EntityType="AlelaModel.Person" />
+          <AssociationSet Name="FK__AspNetUse__Langu__4E88ABD4" Association="AlelaModel.FK__AspNetUse__Langu__4E88ABD4">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AspNetUse__Perso__534D60F1" Association="AlelaModel.FK__AspNetUse__Perso__534D60F1">
+            <End Role="Person" EntitySet="Persons" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Culture" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsSystem" Type="Boolean" Nullable="false" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="PlaceOfBirth" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="GenderID" Type="Int32" />
+          <Property Name="SocialSecurityNumber" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="DriverLicenseNumber" Type="String" MaxLength="40" FixedLength="true" Unicode="true" />
+          <Property Name="DateOfRetirement" Type="DateTime" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="Avatar" Type="String" MaxLength="200" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__AspNetUse__Langu__4E88ABD4">
+          <End Type="AlelaModel.Language" Role="Language" Multiplicity="0..1" />
+          <End Type="AlelaModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUser">
+              <PropertyRef Name="LanguageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AspNetUse__Perso__534D60F1">
+          <End Type="AlelaModel.Person" Role="Person" Multiplicity="0..1" />
+          <End Type="AlelaModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AspNetUser">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -275,6 +536,8 @@
           <EntitySetMapping Name="AspNetUsers">
             <EntityTypeMapping TypeName="AlelaModel.AspNetUser">
               <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
@@ -298,6 +561,39 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="AlelaModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="IsSystem" ColumnName="IsSystem" />
+                <ScalarProperty Name="Culture" ColumnName="Culture" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Persons">
+            <EntityTypeMapping TypeName="AlelaModel.Person">
+              <MappingFragment StoreEntitySet="Persons">
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="DateOfRetirement" ColumnName="DateOfRetirement" />
+                <ScalarProperty Name="DriverLicenseNumber" ColumnName="DriverLicenseNumber" />
+                <ScalarProperty Name="SocialSecurityNumber" ColumnName="SocialSecurityNumber" />
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="PlaceOfBirth" ColumnName="PlaceOfBirth" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

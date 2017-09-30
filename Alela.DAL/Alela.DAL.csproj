@@ -93,6 +93,12 @@
     <Compile Include="AspNetUserLogin.cs">
       <DependentUpon>AlelaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Language.cs">
+      <DependentUpon>AlelaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Person.cs">
+      <DependentUpon>AlelaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

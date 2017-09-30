@@ -29,5 +29,7 @@ namespace Alela.DAL
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<Language> Languages { get; set; }
+        public virtual DbSet<Person> Persons { get; set; }
     }
 }

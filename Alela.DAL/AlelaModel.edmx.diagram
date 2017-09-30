@@ -12,6 +12,10 @@
         <AssociationConnector Association="AlelaModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="AlelaModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="AlelaModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AlelaModel.Language" Width="1.5" PointX="2.125" PointY="7.125" />
+        <EntityTypeShape EntityType="AlelaModel.Person" Width="1.5" PointX="0.625" PointY="6.25" />
+        <AssociationConnector Association="AlelaModel.FK__AspNetUse__Langu__4E88ABD4" />
+        <AssociationConnector Association="AlelaModel.FK__AspNetUse__Perso__534D60F1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
